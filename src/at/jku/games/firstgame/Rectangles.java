@@ -4,8 +4,9 @@ import org.newdawn.slick.*;
 
 public class Rectangles extends BasicGame {
 
-    private int x;
-    private int y;
+    private float x;
+    private float y;
+    private float speed;
 
     public Rectangles(String title) {
         super(title);
@@ -15,17 +16,20 @@ public class Rectangles extends BasicGame {
     public void init(GameContainer gameContainer) throws SlickException {
         this.x = 50;
         this.y = 50;
+        this.speed = 50.0f; // "f" für Float - wird anscheindend benötigt.
+
 
     }
 
     @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException {
-        this.x++;
-        this.y++;
+    public void update(GameContainer gameContainer, int delta) throws SlickException {
+        //System.out.println("Delta Variable: " + delta);
+        this.x += (float) delta / this.speed;
+        this.y += (float) delta / this.speed;
 
-        if (this.x > 500){
-            this.x = 50;
-            this.y =50;
+        if (this.x > 800) {
+            this.x = 0;
+            this.y = 0;
         }
 
 

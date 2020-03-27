@@ -11,18 +11,22 @@ Die Objekte sollen sich folgendermaßen bewegen:
 
 public class Objects extends BasicGame {
 
+    CountPosition countPositionX;
+    CountPosition countPositionY;
+
+    CounterXYRectangles counterXYRectangles;
+
+    private float xMax;
+    private float xMin;
+    private float yMax;
+    private float yMin;
     private float xPosition;
-    private float yPosition ;
+    private float yPosition;
     private float xRectangular;
     private float yRectangular;
     private float speed;
     private boolean countXPositive;
     private boolean countYPositive;
-
-    private enum DIRECTION {RIGHT, DOWN, LEFT, UP}
-
-    private DIRECTION direction;
-
 
     public Objects(String title) {
         super(title);
@@ -31,12 +35,26 @@ public class Objects extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        this.xPosition = 100.0f;
+        this.speed = 2.0f;
+        this.xMin = 100;
+        this.xMax = 500;
+        this.yMin = this.xMin;
+        this.yMax = this.xMax;
+
+        this.countPositionX = new CountPosition(this.xMin, this.xMin, this.xMax, this.speed,
+                true);
+
+        this.countPositionY = new CountPosition(this.yMin, this.yMin, this.yMax, this.speed,
+                false);
+
+        counterXYRectangles = new CounterXYRectangles(this.xMin, this.xMax, this.yMin, this.yMax,
+                this.speed, true);
+
+
         this.yRectangular = 400.0f;
-        this.speed = 50.0f;
+
         this.countXPositive = true;
         this.countYPositive = false;
-        this.direction = DIRECTION.RIGHT;
 
         this.xRectangular = 100.0f;
         this.yRectangular = 100.0f;
@@ -46,50 +64,22 @@ public class Objects extends BasicGame {
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        if (this.countXPositive) {
-            this.xPosition += delta / this.speed;
-            if (this.xPosition >= 400) {
-                this.xPosition = 400;
-                this.countXPositive = false;
 
-            }
-        } else {
-            this.xPosition -= delta / this.speed;
-            if (this.xPosition <= 100) {
-                this.xPosition = 100;
-                this.countXPositive = true;
-            }
-        }
+        this.xPosition = this.countPositionX.getPosition(delta);
+        this.yPosition = this.countPositionY.getPosition(delta);
 
-        if ((this.xPosition == 100) || (this.xPosition == 400)) {
-            switch (this.direction) {
-                case RIGHT:
-                    this.direction = DIRECTION.DOWN;
-                    break;
-                case DOWN:
-                    this.direction = DIRECTION.LEFT;
-                    break;
-                case LEFT:
-                    this.direction = DIRECTION.UP;
-                    break;
-                case UP:
-                    this.direction = DIRECTION.RIGHT;
-                    break;
-            }
+        this.xRectangular = counterXYRectangles.getXPosition(delta);
+        this.yRectangular = counterXYRectangles.getYPosition(delta);
 
-        }
-
-        if()
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
         graphics.drawString("Hello you!", 100, 100);
 
-        if (this.xPosition =)
-            graphics.drawRect(100, 200, 100, 100);
-        graphics.drawOval(500, this.xPosition, 50, 50, 100);
-        graphics.drawOval(this.xPosition, 500, 100, 50, 100);
+        graphics.drawRect(this.xRectangular, this.yRectangular, 100, 100);
+        graphics.drawOval(10, this.yPosition, 50, 50, 100);
+        graphics.drawOval(this.xPosition, 10, 100, 50, 100);
 
     }
 

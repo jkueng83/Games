@@ -20,11 +20,8 @@ public class CounterXYRectangles {
 
     boolean directionIsClockwise;
 
-    CountPosition counterPositionX = new CountPosition(this.xPositionMin, this.xPositionMin, this.xPositionMax, this.speed,
-            true);
-
-    CountPosition counterPositionY = new CountPosition(this.yPositionMin, this.yPositionMin, this.yPositionMax, this.speed,
-            true);
+    CountPosition counterPositionX ;
+    CountPosition counterPositionY ;
 
     public CounterXYRectangles(float xPositionMin, float xPositionMax,
                                float yPositionMin, float yPositionMax,
@@ -42,15 +39,11 @@ public class CounterXYRectangles {
         this.direction = DIRECTION.RIGHT;
         this.directionIsClockwise = directionIsClockwise;
 
-        this.counterPositionX.setPosition(this.xPosition);
-        this.counterPositionX.setMaxPosition(xPositionMax);
-        this.counterPositionX.setMinPosition(xPositionMin);
-        this.counterPositionX.setSpeed(speed);
+        counterPositionX = new CountPosition(this.xPositionMin, this.xPositionMin, this.xPositionMax, this.speed,
+                true);
 
-        this.counterPositionY.setPosition(this.yPosition);
-        this.counterPositionY.setMaxPosition(yPositionMax);
-        this.counterPositionY.setMinPosition(yPositionMin);
-        this.counterPositionY.setSpeed(speed);
+         counterPositionY = new CountPosition(this.yPositionMin, this.yPositionMin, this.yPositionMax, this.speed,
+                true);
 
     }
 

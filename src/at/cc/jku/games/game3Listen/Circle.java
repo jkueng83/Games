@@ -1,10 +1,11 @@
 package at.cc.jku.games.game3Listen;
 
+import at.cc.jku.games.game4Interfacees.Actor;
 import org.newdawn.slick.Graphics;
 
 import java.util.Random;
 
-public class Circle {
+public class Circle implements Actor{
 
     private float x, y;
     private float speed;

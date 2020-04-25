@@ -1,8 +1,9 @@
 package at.cc.jku.games.game2;
 
+import at.cc.jku.games.game4Interfacees.Actor;
 import org.newdawn.slick.Graphics;
 
-public class Rectangle {
+public class Rectangle implements Actor {
 
     private float x;
     private float y;

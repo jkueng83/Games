@@ -38,12 +38,9 @@ public class ObjetsGame3Listen extends BasicGame {
         this.rectangles = new ArrayList<>();
 
         for (int i = 0; i < 100; i++) {
-
             Rectangle rectangle = new Rectangle(random.nextInt(600), random.nextInt(600),
                     random.nextInt(50));
-
             this.rectangles.add(rectangle);
-
         }
 
         this.circles = new LinkedList<>();// ArrayList<>();

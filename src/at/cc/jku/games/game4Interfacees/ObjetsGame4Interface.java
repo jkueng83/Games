@@ -23,7 +23,7 @@ public class ObjetsGame4Interface extends BasicGame {
     public static void main(String[] argv) {
 
         try {
-            AppGameContainer container = new AppGameContainer(new ObjetsGame4Interface("Games 2"));
+            AppGameContainer container = new AppGameContainer(new ObjetsGame4Interface("Game 4 - Interface"));
             container.setDisplayMode(800, 800, false);
             container.start();
         } catch (SlickException e) {

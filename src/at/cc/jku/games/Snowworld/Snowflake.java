@@ -21,8 +21,12 @@ public class Snowflake implements Actor {
         this.xConstant = xStartPosition();
 
         switch (size) {
-            case LARGE: // fast speed
+            case XL:
                 this.speed = 20;
+                this.diameter = 13;
+                break;
+            case LARGE: // fast speed
+                this.speed = 15;
                 this.diameter = 10;
                 break;
             case MEDIUM: // medium speed
@@ -32,6 +36,10 @@ public class Snowflake implements Actor {
             case SMALL: // slow speed
                 this.speed = 5;
                 this.diameter = 4;
+                break;
+            case XS:
+                this.speed = 3;
+                this.diameter = 2;
                 break;
         }
 

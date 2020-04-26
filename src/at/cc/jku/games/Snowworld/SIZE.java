@@ -1,3 +1,3 @@
 package at.cc.jku.games.Snowworld;
 
-public enum SIZE { SMALL, MEDIUM, LARGE}
+public enum SIZE { XS, SMALL, MEDIUM, LARGE, XL}

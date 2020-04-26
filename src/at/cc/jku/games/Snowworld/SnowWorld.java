@@ -25,13 +25,19 @@ public class SnowWorld extends BasicGame {
         this.actors = new ArrayList<>();
 
         for (int i = 0; i < 50; i++) {
-            Snowflake snowflakeSmall = new Snowflake(SIZE.SMALL);
-            Snowflake snowflakeMedium = new Snowflake(SIZE.MEDIUM);
-            Snowflake snowflakeLarge = new Snowflake(SIZE.LARGE);
+            //Snowflake snowflakeSmall = new Snowflake(SIZE.SMALL);
+            //Snowflake snowflakeMedium = new Snowflake(SIZE.MEDIUM);
+            //Snowflake snowflakeLarge = new Snowflake(SIZE.LARGE);
 
-            this.actors.add(snowflakeSmall);
-            this.actors.add(snowflakeMedium);
-            this.actors.add(snowflakeLarge);
+            //this.actors.add(snowflakeSmall);
+            //this.actors.add(snowflakeMedium);
+            //this.actors.add(snowflakeLarge);
+
+            for (SIZE size: SIZE.values()) {
+                Snowflake snowflake = new Snowflake(size);
+                this.actors.add(snowflake);
+
+            }
 
         }
 

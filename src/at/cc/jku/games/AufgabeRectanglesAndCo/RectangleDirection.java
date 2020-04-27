@@ -1,9 +1,9 @@
 package at.cc.jku.games.AufgabeRectanglesAndCo;
 
 import at.cc.jku.games.actors.Actor;
+import at.cc.jku.games.actors.DIRECTION;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.tests.GeomAccuracyTest;
 
 import java.util.Random;
 

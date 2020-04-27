@@ -8,4 +8,5 @@ import java.awt.*;
 public interface Actor {
     public void render(Graphics graphics);
     public void update(GameContainer gameContainer, int delta);
+
 }

@@ -4,6 +4,7 @@ package at.cc.jku.games.AufgabeRectanglesAndCo;
 
 import at.cc.jku.games.actors.Actor;
 import at.cc.jku.games.actors.CircleExpand;
+import at.cc.jku.games.actors.DIRECTION;
 import at.cc.jku.games.actors.Ellipse;
 import org.newdawn.slick.*;
 

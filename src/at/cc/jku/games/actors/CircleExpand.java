@@ -1,6 +1,7 @@
-package at.cc.jku.games.AufgabeRectanglesAndCo;
+package at.cc.jku.games.actors;
 
-import at.cc.jku.games.game4Interfacees.Actor;
+import at.cc.jku.games.actors.Actor;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 import java.util.Random;
@@ -24,7 +25,7 @@ public class CircleExpand implements Actor {
         graphics.drawOval(this.x, this.y, this.diameter, this.diameter);
     }
 
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
 
         this.y += (float) delta / 100.0 * this.speed;
 

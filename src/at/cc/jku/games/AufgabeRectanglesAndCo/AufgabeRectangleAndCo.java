@@ -2,10 +2,9 @@ package at.cc.jku.games.AufgabeRectanglesAndCo;
 
 //import at.jku.games.firstgame.Objects;
 
-import at.cc.jku.games.game2.Rectangle;
-import at.cc.jku.games.game3Listen.Circle;
-import at.cc.jku.games.game4Interfacees.Actor;
-import at.cc.jku.games.game4Interfacees.Ellipse;
+import at.cc.jku.games.actors.Actor;
+import at.cc.jku.games.actors.CircleExpand;
+import at.cc.jku.games.actors.Ellipse;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
@@ -90,7 +89,7 @@ public class AufgabeRectangleAndCo extends BasicGame {
     public void update(GameContainer gameContainer, int delta) throws SlickException {
 
         for (Actor actor : this.actors) { // Actors updaten
-            actor.update(delta);
+            actor.update(gameContainer, delta);
         }
 
     }
@@ -101,8 +100,6 @@ public class AufgabeRectangleAndCo extends BasicGame {
         for (Actor actor : this.actors) { // Actors Zeichnen
             actor.render(graphics);
         }
-
-
 
     }
 }

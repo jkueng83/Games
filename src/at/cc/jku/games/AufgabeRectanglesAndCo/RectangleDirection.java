@@ -1,7 +1,9 @@
 package at.cc.jku.games.AufgabeRectanglesAndCo;
 
-import at.cc.jku.games.game4Interfacees.Actor;
+import at.cc.jku.games.actors.Actor;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.tests.GeomAccuracyTest;
 
 import java.util.Random;
 
@@ -28,7 +30,7 @@ public class RectangleDirection implements Actor {
 
     }
 
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
 
         switch (this.direction) {
             case FROMLEFTTORIGHT:

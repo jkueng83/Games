@@ -1,6 +1,7 @@
-package at.cc.jku.games.game2;
+package at.cc.jku.games.actors;
 
-import at.cc.jku.games.game4Interfacees.Actor;
+import at.cc.jku.games.actors.Actor;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 public class Rectangle implements Actor {
@@ -21,7 +22,7 @@ public class Rectangle implements Actor {
 
     }
 
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
 
         this.x += (float) delta /100.0 * this.speed;
         if (this.x > 600) {

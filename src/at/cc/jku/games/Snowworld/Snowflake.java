@@ -1,5 +1,7 @@
 package at.cc.jku.games.Snowworld;
 
+import at.cc.jku.games.actors.Actor;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 import java.util.Random;
@@ -65,7 +67,7 @@ public class Snowflake implements Actor {
     }
 
     @Override
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
 
         this.y += (float) delta / 100.0 * this.speed;
 

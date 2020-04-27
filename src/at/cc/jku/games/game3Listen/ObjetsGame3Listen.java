@@ -2,7 +2,7 @@ package at.cc.jku.games.game3Listen;
 
 //import at.jku.games.firstgame.Objects;
 
-import at.cc.jku.games.game2.Rectangle;
+import at.cc.jku.games.actors.Rectangle;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
@@ -56,11 +56,11 @@ public class ObjetsGame3Listen extends BasicGame {
     public void update(GameContainer gameContainer, int delta) throws SlickException {
 
         for (Rectangle rectangle : this.rectangles) { // Rechtecke updaten
-            rectangle.update(delta);
+            rectangle.update(gameContainer, delta);
         }
 
         for (Circle circle: this.circles) { // Kreise Updaten
-            circle.update(delta);
+            circle.update(gameContainer, delta);
         }
 
     }

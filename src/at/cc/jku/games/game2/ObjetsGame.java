@@ -1,6 +1,7 @@
 package at.cc.jku.games.game2;
 
 //import at.jku.games.firstgame.Objects;
+import at.cc.jku.games.actors.Rectangle;
 import org.newdawn.slick.*;
 
 public class ObjetsGame extends BasicGame {
@@ -51,16 +52,16 @@ public class ObjetsGame extends BasicGame {
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
 
-        this.rectangle.update(delta);
-        this.rectangle1.update(delta);
-        this.rectangle2.update(delta);
-        this.rectangle3.update(delta);
-        this.rectangle4.update(delta);
-        this.rectangle5.update(delta);
-        this.rectangle6.update(delta);
-        this.rectangle7.update(delta);
-        this.rectangle8.update(delta);
-        this.rectangle9.update(delta);
+        this.rectangle.update(gameContainer, delta);
+        this.rectangle1.update(gameContainer, delta);
+        this.rectangle2.update(gameContainer,delta);
+        this.rectangle3.update(gameContainer, delta);
+        this.rectangle4.update(gameContainer, delta);
+        this.rectangle5.update(gameContainer, delta);
+        this.rectangle6.update(gameContainer, delta);
+        this.rectangle7.update(gameContainer, delta);
+        this.rectangle8.update(gameContainer, delta);
+        this.rectangle9.update(gameContainer, delta);
 
     }
 

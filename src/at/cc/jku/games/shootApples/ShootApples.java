@@ -28,6 +28,11 @@ public class ShootApples extends BasicGame {
         Tree tree = new Tree();
         this.actors.add(tree);
 
+        ObjectPngPositionHelloKitty helloKitty = new ObjectPngPositionHelloKitty(600, 600, 300,
+                200);
+
+        this.actors.add(helloKitty);
+
         this.slingshot = new Slingshot();
         this.actors.add(this.slingshot);
 
@@ -38,6 +43,7 @@ public class ShootApples extends BasicGame {
         this.flyingApple = flyingApple;
 
         this.applesPointsCounter = new ApplesPointsCounter();
+
 
 
     }
@@ -54,7 +60,7 @@ public class ShootApples extends BasicGame {
             } catch (SlickException e) {
                 e.printStackTrace();
             }
-            this.actors.add(flyingDiamant);
+            //this.actors.add(flyingDiamant);
             this.flyingDiamonds.add(flyingDiamant);
 
         }
@@ -72,13 +78,17 @@ public class ShootApples extends BasicGame {
             this.flyingApple.setNewStartPosition();
         }
 
+        for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
+            flyingDiamond.update(gameContainer, delta);
+        }
+
         if (this.flyingApple.getY() > 1000) {
             this.flyingApple.setNewStartPosition();
         }
 
         removeDiamondsOutOfWindow();
 
-        for (FlyingDiamond flyingDiamond: this.flyingDiamonds) {
+        for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
             System.out.println("Positin Y" + flyingDiamond.getY());
 
         }
@@ -108,7 +118,11 @@ public class ShootApples extends BasicGame {
             actor.render(graphics);
 
         }
-        System.out.println("actors: "+ this.actors.size());
+
+        for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
+            flyingDiamond.render(graphics);
+        }
+
     }
 
     public static void main(String[] argv) {

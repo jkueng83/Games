@@ -1,6 +1,6 @@
 package at.cc.jku.games.shootApples;
 
-import at.cc.jku.games.actors.FlyingApple;
+import at.cc.jku.games.actors.FallingApple;
 import at.cc.jku.games.actors.FlyingDiamond;
 
 import java.util.List;
@@ -22,14 +22,14 @@ public class ApplesPointsCounter {
 
     }
 
-    public void actualPositionFlyingApple(FlyingApple flyingApple) {
+    public void actualPositionFlyingApple(FallingApple fallingApple) {
         //this.flyingApple = flyingApple;
-        this.applePositionX = flyingApple.getAppleCenterPositionX();
-        this.applePositionY = flyingApple.getY();
+        this.applePositionX = fallingApple.getAppleCenterPositionX();
+        this.applePositionY = fallingApple.getY();
     }
 
-    public boolean isAppleShoot(FlyingApple flyingApple, List<FlyingDiamond> flyingDiamonds) {
-        actualPositionFlyingApple(flyingApple);
+    public boolean isAppleShoot(FallingApple fallingApple, List<FlyingDiamond> flyingDiamonds) {
+        actualPositionFlyingApple(fallingApple);
         boolean isAppleShoot = false;
         for (FlyingDiamond flyingDiamond : flyingDiamonds) {
             if ((this.applePositionX - 50 < flyingDiamond.getCenterpositionX())

@@ -5,14 +5,14 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-public class FlyingObject implements Actor {
+public class MovingObjectPng implements Actor {
 
     float x, y, speed, objectWith, objectHeight;
     Image objectImage;
-    DIRECTION direction;
+    MOVEDIRECTION direction;
 
-    public FlyingObject(float x, float y, float speed, float objectWith, float objectHeight, DIRECTION direction,
-                        String imagePath) throws SlickException {
+    public MovingObjectPng(float x, float y, float speed, float objectWith, float objectHeight, MOVEDIRECTION direction,
+                           String imagePath) throws SlickException {
 
         this.x = x;
         this.y = y;
@@ -37,16 +37,16 @@ public class FlyingObject implements Actor {
     public void update(GameContainer gameContainer, int delta) {
 
         switch (this.direction) {
-            case FROMRIGHTTOLEFT:
+            case MOVETOLEFT:
                 this.x -= this.speed / 100 * delta;
                 break;
-            case FROMLEFTTORIGHT:
+            case MOVETORIGHT:
                 this.x += this.speed / 100 * delta;
                 break;
-            case UP:
+            case MOVEUP:
                 this.y -= this.speed / 100 * delta;
                 break;
-            case DOWN:
+            case MOVEDOWN:
                 this.y += this.speed / 100 * delta;
                 break;
         }

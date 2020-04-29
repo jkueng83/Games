@@ -1,13 +1,19 @@
 package at.cc.jku.games.actors;
 
-import org.newdawn.slick.*;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 
-public class Tree implements Actor {
+public class Tree extends ObjectPngPosition { // implements Actor {
     private Image slingshot;
-    float x, y, v, objectWith, objectHeight;
 
+    public Tree(float x, float y, float objectWith, float objectHeight) throws SlickException {
+        super(x, y, objectWith, objectHeight, "src/at/cc/jku/games/actors/pictures/tree.png");
+    }
+    //float x, y, v, objectWith, objectHeight;
+/*
     public Tree() throws SlickException {
-        this.objectWith = 700;
+        super();
+                          t his.objectWith = 700;
         this.objectHeight = 700;
         Image temp = new Image("src/at/cc/jku/games/actors/pictures/tree.png");
         this.slingshot = temp.getScaledCopy((int) this.objectWith, (int) this.objectHeight);
@@ -17,10 +23,12 @@ public class Tree implements Actor {
 
     }
 
+ */
+/*
     @Override
     public void render(Graphics graphics) {
 
-        this.slingshot.draw(this.x - this.objectWith / 2 , this.y);
+        //this.slingshot.draw(this.x - this.objectWith / 2 , this.y);
 
     }
 
@@ -28,4 +36,6 @@ public class Tree implements Actor {
     public void update(GameContainer gameContainer, int delta) {
 
     }
+
+ */
 }

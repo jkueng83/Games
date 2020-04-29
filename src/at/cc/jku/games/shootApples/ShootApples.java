@@ -11,7 +11,7 @@ public class ShootApples extends BasicGame {
     private List<Actor> actors;
     private List<FlyingDiamond> flyingDiamonds;
     private Slingshot slingshot;
-    private FlyingApple flyingApple;
+    private FallingApple fallingApple;
 
     private ApplesPointsCounter applesPointsCounter;
 
@@ -25,7 +25,7 @@ public class ShootApples extends BasicGame {
         this.actors = new ArrayList<>();
         this.flyingDiamonds = new ArrayList<>();
 
-        Tree tree = new Tree();
+        Tree tree = new Tree(400, 350, 700, 700);
         this.actors.add(tree);
 
         ObjectPngPositionHelloKitty helloKitty = new ObjectPngPositionHelloKitty(600, 600, 300,
@@ -36,14 +36,13 @@ public class ShootApples extends BasicGame {
         this.slingshot = new Slingshot();
         this.actors.add(this.slingshot);
 
-        FlyingApple flyingApple = new FlyingApple(50, 20, DIRECTION.DOWN,
+        FallingApple fallingApple = new FallingApple(50, 20, MOVEDIRECTION.MOVEDOWN,
                 "src/at/cc/jku/games/actors/pictures/AppleTheOriginal.png");
 
-        this.actors.add(flyingApple);
-        this.flyingApple = flyingApple;
+        this.actors.add(fallingApple);
+        this.fallingApple = fallingApple;
 
         this.applesPointsCounter = new ApplesPointsCounter();
-
 
 
     }
@@ -55,7 +54,7 @@ public class ShootApples extends BasicGame {
             FlyingDiamond flyingDiamant = null;
             try {
                 flyingDiamant = new FlyingDiamond(this.slingshot.getXCenter(), this.slingshot.getY(), 50,
-                        50, 50, DIRECTION.UP,
+                        50, 50, MOVEDIRECTION.MOVEUP,
                         "src/at/cc/jku/games/actors/pictures/diamond2.png");
             } catch (SlickException e) {
                 e.printStackTrace();
@@ -73,17 +72,17 @@ public class ShootApples extends BasicGame {
 
         }
 
-        if (this.applesPointsCounter.isAppleShoot(this.flyingApple, this.flyingDiamonds)) {
+        if (this.applesPointsCounter.isAppleShoot(this.fallingApple, this.flyingDiamonds)) {
             removeAllDiamonds();
-            this.flyingApple.setNewStartPosition();
+            this.fallingApple.setNewStartPosition();
         }
 
         for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
             flyingDiamond.update(gameContainer, delta);
         }
 
-        if (this.flyingApple.getY() > 1000) {
-            this.flyingApple.setNewStartPosition();
+        if (this.fallingApple.getY() > 1000) {
+            this.fallingApple.setNewStartPosition();
         }
 
         removeDiamondsOutOfWindow();

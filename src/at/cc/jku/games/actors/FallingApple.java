@@ -4,10 +4,10 @@ import org.newdawn.slick.SlickException;
 
 import java.util.Random;
 
-public class FlyingApple extends FlyingObject {
+public class FallingApple extends MovingObjectPng {
 
 
-    public FlyingApple(float y, float speed, DIRECTION direction, String imagePath) throws SlickException {
+    public FallingApple(float y, float speed, MOVEDIRECTION direction, String imagePath) throws SlickException {
         super(0, y, speed, 100, 100, direction, imagePath);//
 
         setNewStartPosition();

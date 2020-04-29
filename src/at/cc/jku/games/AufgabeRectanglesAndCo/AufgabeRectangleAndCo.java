@@ -4,7 +4,7 @@ package at.cc.jku.games.AufgabeRectanglesAndCo;
 
 import at.cc.jku.games.actors.Actor;
 import at.cc.jku.games.actors.CircleExpand;
-import at.cc.jku.games.actors.DIRECTION;
+import at.cc.jku.games.actors.MOVEDIRECTION;
 import at.cc.jku.games.actors.Ellipse;
 import org.newdawn.slick.*;
 
@@ -56,14 +56,14 @@ public class AufgabeRectangleAndCo extends BasicGame {
 
         this.actors = new ArrayList<>();
 
-        DIRECTION direction ;
+        MOVEDIRECTION direction ;
 
         for (int i = 0; i < 10; i++) {
 
             if (random.nextInt(2)>0){
-                direction = DIRECTION.FROMLEFTTORIGHT;
+                direction = MOVEDIRECTION.MOVETORIGHT;
             }else {
-                direction = DIRECTION.FROMRIGHTTOLEFT;
+                direction = MOVEDIRECTION.MOVETOLEFT;
             }
 
             RectangleDirection rectangle = new RectangleDirection(random.nextInt(600),

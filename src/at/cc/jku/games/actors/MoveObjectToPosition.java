@@ -5,7 +5,7 @@ import org.newdawn.slick.SlickException;
 
 public class MoveObjectToPosition extends ObjectPngPosition {
 
-    protected float xDestination, yDestination, speedMax, deltaT, speedXParabel;
+    protected float xDestination, yDestination, speedMax, deltaT, speedXParabel, speedXBogen;
     MOVETYPE moveType;
     private float a, b, c, x1, y1, x2, y2, x3, y3;
 
@@ -36,19 +36,59 @@ public class MoveObjectToPosition extends ObjectPngPosition {
             case PARABEL:
                 moveParableToDestination();
                 break;
+            case BOGEN:
+                moveBogenToDestination();
+                break;
         }
 
     }
 
+    private void moveBogenToDestination() {
+        // funktioniert auch nicht gut
+        this.speedXBogen = (this.x3 - this.x1) / 2000;
+        float deltaX = Math.abs(this.xDestination - this.x);
+        if (deltaX < 1) {
+            this.x = this.xDestination;
+            this.y = this.yDestination;
+        } else {
+            this.x += this.speedXBogen * this.deltaT;
+            if (deltaX > 200){
+                this.y +=2 ;
+            }else{
+                this.y = this.y - (this.y-this.yDestination)/2;
+            }
+
+        }
+
+
+
+    }
+
     private void moveParableToDestination() {
+        // funktioniert nich so gut da die Punkte der Parabel für die Berechnung der Konstanten nicht stimmt.
         float a, b, c;
+        float x1 = this.x1;
+        float y1 = this.y1;
+        float x2 = this.x2;
+        float y2 = this.y2;
+        float x3 = this.x3;
+        float y3 = this.y3;
+
 
         //y = ax2 + bx + c
-        // c= y - ax^2 - bx = y1 - a*x1^2 - b*x1
+        // c = y - ax^2 - bx =
+        // c = y1 - a*x1 ^ 2 - b * x1
+        // c = y1 - a * x1 * x1 - b * x1;
 
-        //b = (y - ax^2 - c)/x = (y2- a*x2^2 - y1 - a*x1^2 - b*x1)/2
+        // b = (y - ax^2 - c)/x
+        // b = (y2 - a * x2^2 - c)/x2
+        // b  = (y2 - a * x2^2 - (c))/x2
+        // b = (y2- a*x2*x2 - (y1 - a * x1 * x1 - b * x1))/x2
 
-        // a = (y - bx - c)/(x^2) = y3 - ((y2- a*x2^2 - y1 - a*x1^2 - b*x1)/2)*x3 - (y1 - a*x1^2 - b*x1) )/ (x3^2)
+        // a = (y - bx - c)/(x^2) =
+        // a= (y3 - (b) * x3 - (c) /(x3^2)
+        // a= (y3 - ((y2- a*x2*x2 - (y1 - a * x1 * x1 - b * x1))/x2) * x3 - (y1 - a * x1 * x1 - b * x1)) /(x3*x3)
+        //
 
         a = this.a;
         b = this.b;
@@ -58,16 +98,22 @@ public class MoveObjectToPosition extends ObjectPngPosition {
 
         if (a == 0) { // Konstanten berechnern
 
-            a = y3 - ((y2 - a * x2 * x2 - y1 - a * x1 * x1 - b * x1) / 2) * x3 - (y1 - a * x1 * x1 - b * x1) / (x3 * x3);
-            b = (y2 - a * x2 * x2 - y1 - a * x1 * x1 - b * x1) / 2;
-            c = y1 - a * x1 * x1 - b * x1;
+            a = (y3 - ((y2 - a * x2 * x2 - (y1 - a * x1 * x1 - b * x1)) / x2) * x3 - (y1 - a * x1 * x1 - b * x1)) / (x3 * x3);
+
+            b = (y2 - a * x2 * x2 - (y1 - a * x1 * x1 - b * x1)) / x2;
+            c = y1 - a * x1 * x1 - b * x1;//c = y1 - a * x1 * x1 - b * x1; //c = y1 - a * x1 * x1 - b * x1;
+            //a = 1;
+            //b = 1;
+            //c = 1;
+
+
             this.a = a;
             this.b = b;
             this.c = c;
             this.speedXParabel = deltaX / 2000; //s/t soll in 2 Sekunden am Ziel sein
         }
 
-        if (deltaX < 2) {
+        if (deltaX < 0.01) {
             this.x = this.xDestination;
             this.y = this.yDestination;
         } else {
@@ -79,6 +125,7 @@ public class MoveObjectToPosition extends ObjectPngPosition {
             }
             this.y = a * this.x * this.x + b * this.x + c;
 
+            System.out.println("x pos: " + this.x + "y pos: " + this.y);
         }
 
 

@@ -14,6 +14,7 @@ public class ApplesPointsCounter implements Actor {
     private int points;
     private int pointsPerApple;
     private FallingApple fallingApple;
+    private boolean isGameOver;
     //private FlyingApple flyingApple;
     //private float applePositionX;
     //private float applePositionY;
@@ -28,23 +29,13 @@ public class ApplesPointsCounter implements Actor {
         this.pointsPerApple = 1;
     }
 
-    /*
-    public void setFallingApple ( FallingApple fallingApple){
-        this.fallingApple = fallingApple;
+    public boolean isGameOver() {
+        if (this.applesOnFloor >= 10) {
+            this.isGameOver = true;
+        }
+
+        return this.isGameOver;
     }
-
-     */
-
-
-
-    /*
-    public void actualPositionFlyingApple(FallingApple fallingApple) {
-        //this.flyingApple = flyingApple;
-        this.applePositionX = fallingApple.getX();
-        this.applePositionY = fallingApple.getY();
-    }
-
-     */
 
     public boolean isAppleShoot(List<FlyingDiamond> flyingDiamonds) {
         //actualPositionFlyingApple(fallingApple);
@@ -97,10 +88,15 @@ public class ApplesPointsCounter implements Actor {
 
     @Override
     public void render(Graphics graphics) {
+
         graphics.drawString("Points:\t" + this.points, 20, 50);
         graphics.drawString("Shoot apples:\t" + this.shootApples, 20, 70);
         graphics.drawString("Apples on Floor:\t" + this.applesOnFloor, 20, 90);
-        graphics.drawString("Apple speed:\t" + this.fallingApple.getSpeed(),20,110);
+        graphics.drawString("Apple speed:\t" + this.fallingApple.getSpeed(), 20, 110);
+        if (this.isGameOver) {
+
+            graphics.drawString("Game Over!!!!", 20, 150);
+        }
     }
 
     @Override

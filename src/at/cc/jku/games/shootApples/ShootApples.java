@@ -67,36 +67,42 @@ public class ShootApples extends BasicGame {
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        for (Actor actor : this.actors) {
-            actor.update(gameContainer, delta);
 
-        }
-
-        if (this.applesPointsCounter.isAppleShoot(this.flyingDiamonds)) {
-            removeAllDiamonds();
+        if (!this.applesPointsCounter.isGameOver()) {
 
 
-            MoveAppleToShootApples shootApple2 = new MoveAppleToShootApples(this.fallingApple.getX(), 100,
-                    this.fallingApple.getY(), 500);
+            for (Actor actor : this.actors) {
+                actor.update(gameContainer, delta);
 
-            this.actors.add(shootApple2);
+            }
 
-            this.fallingApple.setNewStartPosition();
+            if (this.applesPointsCounter.isAppleShoot(this.flyingDiamonds)) {
+                removeAllDiamonds();
 
-        }
 
-        for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
-            flyingDiamond.update(gameContainer, delta);
-        }
+                MoveAppleToShootApples shootApple2 = new MoveAppleToShootApples(this.fallingApple.getX(), 100,
+                        this.fallingApple.getY(), 500);
 
-        if (this.fallingApple.getY() > 1000) {
-            this.fallingApple.setNewStartPosition();
-        }
+                this.actors.add(shootApple2);
 
-        removeDiamondsOutOfWindow();
+                this.fallingApple.setNewStartPosition();
 
-        for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
-            System.out.println("Positin Y" + flyingDiamond.getY());
+            }
+
+            for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
+                flyingDiamond.update(gameContainer, delta);
+            }
+
+            if (this.fallingApple.getY() > 1000) {
+                this.fallingApple.setNewStartPosition();
+            }
+
+            removeDiamondsOutOfWindow();
+
+            for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {
+                System.out.println("Positin Y" + flyingDiamond.getY());
+
+            }
 
         }
 

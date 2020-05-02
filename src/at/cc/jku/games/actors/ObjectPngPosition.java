@@ -57,4 +57,20 @@ public class ObjectPngPosition implements Actor {
     public float getObjectWith() {
         return objectWith;
     }
+
+    public float getXPositionMin() {
+        return this.x - this.objectWith / 2;
+    }
+
+    public float getXPositionMax() {
+        return this.x + this.objectWith / 2;
+    }
+
+    public float getYPositionMin() {
+        return this.y - this.objectHeight / 2;
+    }
+
+    public float getYPositionMax() {
+        return this.y + this.objectHeight / 2;
+    }
 }

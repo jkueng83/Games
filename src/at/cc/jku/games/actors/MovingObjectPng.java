@@ -5,12 +5,21 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
-public class MovingObjectPng implements Actor {
+public class MovingObjectPng extends ObjectPngPosition {
 
-    float x, y, speed, objectWith, objectHeight;
-    Image objectImage;
-    MOVEDIRECTION direction;
+    private float speed;
+    //Image objectImage;
+    private MOVEDIRECTION direction;
 
+    public MovingObjectPng(float x, float y, float objectWith, float objectHeight, String imagePath,
+                           MOVEDIRECTION direction , float speed) throws SlickException {
+        super(x, y, objectWith, objectHeight,  imagePath);
+        this.direction = direction;
+        this.speed = speed;
+    }
+
+
+    /*
     public MovingObjectPng(float x, float y, float speed, float objectWith, float objectHeight, MOVEDIRECTION direction,
                            String imagePath) throws SlickException {
 
@@ -25,6 +34,8 @@ public class MovingObjectPng implements Actor {
         this.direction = direction;
         ;
     }
+
+     */
 
 
     @Override
@@ -76,5 +87,13 @@ public class MovingObjectPng implements Actor {
 
     public float getObjectWith() {
         return objectWith;
+    }
+
+    public float getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(float speed) {
+        this.speed = speed;
     }
 }

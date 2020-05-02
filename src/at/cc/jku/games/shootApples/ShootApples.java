@@ -36,33 +36,33 @@ public class ShootApples extends BasicGame {
         this.slingshot = new Slingshot();
         this.actors.add(this.slingshot);
 
-        FallingApple fallingApple = new FallingApple(50, 20, MOVEDIRECTION.MOVEDOWN,
-                "src/at/cc/jku/games/actors/pictures/AppleTheOriginal.png");
+        FallingApple fallingApple = new FallingApple(10);
 
         this.actors.add(fallingApple);
         this.fallingApple = fallingApple;
 
-        this.applesPointsCounter = new ApplesPointsCounter();
+        this.applesPointsCounter = new ApplesPointsCounter(fallingApple);
+        this.actors.add(applesPointsCounter);
+
+
 
 
     }
 
     @Override
     public void keyPressed(int key, char c) {
+
         if (key == Input.KEY_SPACE) {
             System.out.println("shoot!");
-            FlyingDiamond flyingDiamant = null;
+            FlyingDiamond flyingDiamont = null;
             try {
-                flyingDiamant = new FlyingDiamond(this.slingshot.getXCenter(), this.slingshot.getY(), 50,
-                        50, 50, MOVEDIRECTION.MOVEUP,
-                        "src/at/cc/jku/games/actors/pictures/diamond2.png");
+                flyingDiamont = new FlyingDiamond(this.slingshot.getX(), this.slingshot.getY());
             } catch (SlickException e) {
                 e.printStackTrace();
             }
-            //this.actors.add(flyingDiamant);
-            this.flyingDiamonds.add(flyingDiamant);
-
+            this.flyingDiamonds.add(flyingDiamont);
         }
+
     }
 
     @Override
@@ -72,9 +72,17 @@ public class ShootApples extends BasicGame {
 
         }
 
-        if (this.applesPointsCounter.isAppleShoot(this.fallingApple, this.flyingDiamonds)) {
+        if (this.applesPointsCounter.isAppleShoot(this.flyingDiamonds)) {
             removeAllDiamonds();
+
+
+            MoveAppleToShootApples shootApple2 = new MoveAppleToShootApples(this.fallingApple.getX(), 100,
+                    this.fallingApple.getY(), 500);
+
+            this.actors.add(shootApple2);
+
             this.fallingApple.setNewStartPosition();
+
         }
 
         for (FlyingDiamond flyingDiamond : this.flyingDiamonds) {

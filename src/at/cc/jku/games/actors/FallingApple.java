@@ -17,7 +17,7 @@ public class FallingApple extends MovingObjectPng {
 
         float x = setXPositionRandom();
         this.setX(x);
-        this.setY(-100);
+        this.setY(-50);
 
     }
 

@@ -4,7 +4,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
-public class ObjectPngPosition implements Actor {
+public class ObjectPngPosition implements Actor, CollisionShape {
 
     protected float x, y, objectWith, objectHeight;
     protected Image objectImage;
@@ -89,7 +89,15 @@ public class ObjectPngPosition implements Actor {
         return this.y + this.objectHeight / 2;
     }
 
+    /* Wird jetzt über das Intercface "CollistionShape" gemacht.
     public Shape getCollisionShape() {
+        return collisionShape;
+    }
+
+     */
+
+    @Override
+    public Shape getShape() {
         return collisionShape;
     }
 }

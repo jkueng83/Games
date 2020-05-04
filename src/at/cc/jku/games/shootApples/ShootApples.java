@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShootApples extends BasicGame {
+    // Version 1: ohne Collision Shape
 
     private List<Actor> actors;
     private List<FlyingDiamond> flyingDiamonds;

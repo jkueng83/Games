@@ -2,7 +2,7 @@ package at.cc.jku.games.game4Interfacees;
 
 //import at.jku.games.firstgame.Objects;
 
-import at.cc.jku.games.actors.Actor;
+import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Ellipse;
 import at.cc.jku.games.actors.Rectangle;
 import at.cc.jku.games.actors.Circle;

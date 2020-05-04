@@ -1,6 +1,6 @@
 package at.cc.jku.games.shootApples;
 
-import at.cc.jku.games.actors.*;
+import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Png.*;
 import at.cc.jku.games.actors.Png.MovingPng.FallingApple;
 import at.cc.jku.games.actors.Png.MovingPng.FlyingDiamond;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShootApples extends BasicGame {
-    // Version 1.5.0: Neue Package erstellen
+    // Version 1.5.1: Neue Package erstellen
     // Version 1.4.0: Texte überarbeitet
     // Version 1.3.0: Interface CollisionActor erbt von Actor
     // Version 1.2.0: Add Interface CollisionShape

@@ -1,5 +1,6 @@
 package at.cc.jku.games.actors;
 
+import at.cc.jku.games.actors.Interfaces.Actor;
 import org.newdawn.slick.*;
 
 public class Rocket implements Actor {

@@ -3,6 +3,7 @@ package at.cc.jku.games.rocket;
 //import at.jku.games.firstgame.Objects;
 
 import at.cc.jku.games.Snowworld.SIZE;
+import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Snowflake;
 import at.cc.jku.games.actors.*;
 import at.cc.jku.games.actors.Circle;

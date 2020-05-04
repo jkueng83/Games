@@ -1,6 +1,6 @@
 package at.cc.jku.games.AufgabeRectanglesAndCo;
 
-import at.cc.jku.games.actors.Actor;
+import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Enums.MOVEDIRECTION;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;

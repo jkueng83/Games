@@ -2,7 +2,7 @@ package at.cc.jku.games.AufgabeRectanglesAndCo;
 
 //import at.jku.games.firstgame.Objects;
 
-import at.cc.jku.games.actors.Actor;
+import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.CircleExpand;
 import at.cc.jku.games.actors.Enums.MOVEDIRECTION;
 import at.cc.jku.games.actors.Ellipse;

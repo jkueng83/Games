@@ -1,4 +1,4 @@
-package at.cc.jku.games.actors;
+package at.cc.jku.games.actors.Interfaces;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;

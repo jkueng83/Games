@@ -3,8 +3,10 @@ package at.cc.jku.games.shootApples;
 import at.cc.jku.games.actors.Actor;
 import at.cc.jku.games.actors.FallingApple;
 import at.cc.jku.games.actors.FlyingDiamond;
+import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.SlickException;
 
 import java.util.List;
 
@@ -15,18 +17,20 @@ public class ApplesPointsCounter implements Actor {
     private int pointsPerApple;
     private FallingApple fallingApple;
     private boolean isGameOver;
+    private AngelCodeFont font;
     //private FlyingApple flyingApple;
     //private float applePositionX;
     //private float applePositionY;
     //private List<FlyingDiamond> flyingDiamonds;
 
 
-    public ApplesPointsCounter(FallingApple fallingApple) {
+    public ApplesPointsCounter(FallingApple fallingApple) throws SlickException {
         this.fallingApple = fallingApple;
         this.shootApples = 0;
         this.applesOnFloor = 0;
         this.points = 0;
         this.pointsPerApple = 1;
+        this.font = new AngelCodeFont("testdata/hiero.fnt", "testdata/hiero.png");
     }
 
     public boolean isGameOver() {
@@ -109,14 +113,12 @@ public class ApplesPointsCounter implements Actor {
 
     @Override
     public void render(Graphics graphics) {
-
-        graphics.drawString("Points:\t" + this.points, 20, 50);
-        graphics.drawString("Shoot apples:\t" + this.shootApples, 20, 70);
-        graphics.drawString("Apples on Floor:\t" + this.applesOnFloor, 20, 90);
-        graphics.drawString("Apple speed:\t" + this.fallingApple.getSpeed(), 20, 110);
+        float yStart = 30;
+        this.font.drawString(20, yStart, "Points: " + this.points);
+        this.font.drawString(20, yStart + 50, "Hits: " + this.shootApples);
+        this.font.drawString(20, yStart + 100, "Fail: " + this.applesOnFloor);
         if (this.isGameOver) {
-
-            graphics.drawString("Game Over!!!!", 20, 150);
+                this.font.drawString(20, yStart + 150, "Game Over!!!!");
         }
     }
 

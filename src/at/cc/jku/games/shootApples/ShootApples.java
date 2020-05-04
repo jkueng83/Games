@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShootApples extends BasicGame {
+    // Version 1.4.0: Texte überarbeitet
     // Version 1.3.0: Interface CollisionActor erbt von Actor
     // Version 1.2.0: Add Interface CollisionShape
     // Version 1.1.0: Add Collision Shape

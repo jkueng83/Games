@@ -1,5 +1,6 @@
-package at.cc.jku.games.actors;
+package at.cc.jku.games.actors.Png;
 
+import at.cc.jku.games.actors.Png.ObjectPngPosition;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 

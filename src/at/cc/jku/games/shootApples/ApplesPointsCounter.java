@@ -1,8 +1,8 @@
 package at.cc.jku.games.shootApples;
 
 import at.cc.jku.games.actors.Actor;
-import at.cc.jku.games.actors.FallingApple;
-import at.cc.jku.games.actors.FlyingDiamond;
+import at.cc.jku.games.actors.Png.MovingPng.FallingApple;
+import at.cc.jku.games.actors.Png.MovingPng.FlyingDiamond;
 import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;

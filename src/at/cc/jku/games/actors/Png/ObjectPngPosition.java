@@ -1,5 +1,6 @@
-package at.cc.jku.games.actors;
+package at.cc.jku.games.actors.Png;
 
+import at.cc.jku.games.actors.CollisionActor;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;

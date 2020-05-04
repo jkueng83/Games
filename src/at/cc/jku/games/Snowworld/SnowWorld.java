@@ -2,6 +2,7 @@ package at.cc.jku.games.Snowworld;
 
 
 import at.cc.jku.games.actors.Actor;
+import at.cc.jku.games.actors.Snowflake;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;

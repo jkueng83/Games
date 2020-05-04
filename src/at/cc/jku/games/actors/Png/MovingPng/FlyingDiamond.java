@@ -1,5 +1,6 @@
-package at.cc.jku.games.actors;
+package at.cc.jku.games.actors.Png.MovingPng;
 
+import at.cc.jku.games.actors.Enums.MOVEDIRECTION;
 import org.newdawn.slick.SlickException;
 
 public class FlyingDiamond extends MovingObjectPng {

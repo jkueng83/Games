@@ -2,6 +2,7 @@ package at.cc.jku.games.game3Listen;
 
 //import at.jku.games.firstgame.Objects;
 
+import at.cc.jku.games.actors.Circle;
 import at.cc.jku.games.actors.Rectangle;
 import org.newdawn.slick.*;
 

@@ -1,4 +1,4 @@
-package at.cc.jku.games.game3Listen;
+package at.cc.jku.games.actors;
 
 import at.cc.jku.games.actors.Actor;
 import org.newdawn.slick.GameContainer;

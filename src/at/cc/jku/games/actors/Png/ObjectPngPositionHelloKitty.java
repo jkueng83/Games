@@ -1,4 +1,4 @@
-package at.cc.jku.games.actors;
+package at.cc.jku.games.actors.Png;
 
 import org.newdawn.slick.SlickException;
 

@@ -3,9 +3,9 @@ package at.cc.jku.games.rocket;
 //import at.jku.games.firstgame.Objects;
 
 import at.cc.jku.games.Snowworld.SIZE;
-import at.cc.jku.games.Snowworld.Snowflake;
+import at.cc.jku.games.actors.Snowflake;
 import at.cc.jku.games.actors.*;
-import at.cc.jku.games.game3Listen.Circle;
+import at.cc.jku.games.actors.Circle;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;

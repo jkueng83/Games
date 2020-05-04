@@ -5,7 +5,7 @@ package at.cc.jku.games.game4Interfacees;
 import at.cc.jku.games.actors.Actor;
 import at.cc.jku.games.actors.Ellipse;
 import at.cc.jku.games.actors.Rectangle;
-import at.cc.jku.games.game3Listen.Circle;
+import at.cc.jku.games.actors.Circle;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;

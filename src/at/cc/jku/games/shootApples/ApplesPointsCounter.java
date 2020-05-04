@@ -42,6 +42,7 @@ public class ApplesPointsCounter implements Actor {
 
         boolean isAppleShoot = false;
         for (FlyingDiamond flyingDiamond : flyingDiamonds) {
+            /* Kollision selbst überwacht
             if ((this.fallingApple.getXPositionMin() < flyingDiamond.getXPositionMax())
                     && (this.fallingApple.getXPositionMax() > flyingDiamond.getXPositionMin())) {
 
@@ -51,6 +52,15 @@ public class ApplesPointsCounter implements Actor {
                     countApplesPoints();
                     break;
                 }
+            }
+
+             */
+            // Neu mit collition Shapes
+            if (this.fallingApple.getCollisionShape().intersects(flyingDiamond.getCollisionShape())){
+                System.out.println("hit with intersection of Collision Shape");
+                isAppleShoot = true;
+                countApplesPoints();
+                break;
             }
 
         }

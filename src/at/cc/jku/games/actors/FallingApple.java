@@ -13,16 +13,6 @@ public class FallingApple extends MovingObjectPng {
         setNewStartPosition();
     }
 
-/*
-    public FallingApple(float y, float speed, MOVEDIRECTION direction, String imagePath) throws SlickException {
-        super(0, y, speed, 100, imagePath, direction );//
-
-        setNewStartPosition();
-
-    }
-
- */
-
     public void setNewStartPosition() {
 
         float x = setXPositionRandom();
@@ -35,14 +25,6 @@ public class FallingApple extends MovingObjectPng {
         Random random = new Random();
         float x = (float) (random.nextInt(600) + 50);
         return x;
-
     }
-
-    /*
-    public float getAppleCenterPositionX() {
-        return getX() + getObjectWith() / 2;
-    }
-
-     */
 
 }

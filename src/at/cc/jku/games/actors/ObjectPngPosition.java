@@ -1,14 +1,14 @@
 package at.cc.jku.games.actors;
 
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Shape;
 
 public class ObjectPngPosition implements Actor {
 
     protected float x, y, objectWith, objectHeight;
     protected Image objectImage;
+    private Shape collisionShape;
 
     public ObjectPngPosition(float x, float y, float objectWith, float objectHeight,
                              String imagePath) throws SlickException {
@@ -22,6 +22,8 @@ public class ObjectPngPosition implements Actor {
         Image temp = new Image(imagePath); //"src/at/cc/jku/games/actors/pictures/diamond2.png");
         this.objectImage = temp.getScaledCopy((int) this.objectWith, (int) this.objectHeight);
 
+        this.collisionShape = new Rectangle(x, y, objectWith, objectHeight);
+
         ;
     }
 
@@ -29,11 +31,24 @@ public class ObjectPngPosition implements Actor {
     @Override
     public void render(Graphics graphics) {
         this.objectImage.draw(this.x - this.objectWith / 2, this.y - this.objectHeight / 2);
+        // nur jetzt zum entwickeln
+        /* nur jetzt zum entwickeln
+        graphics.setColor(new Color(100, 100, 100));
+        graphics.draw(this.collisionShape);
+        graphics.setColor(Color.white);
+        */
 
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
+
+        /*  Es gibt auch eine Center Position
+        this.collisionShape.setX(this.x - this.objectWith / 2);
+        this.collisionShape.setY(this.y - this.objectHeight / 2);
+        */
+        this.collisionShape.setCenterX(this.x);
+        this.collisionShape.setCenterY(this.y);
 
 
     }
@@ -72,5 +87,9 @@ public class ObjectPngPosition implements Actor {
 
     public float getYPositionMax() {
         return this.y + this.objectHeight / 2;
+    }
+
+    public Shape getCollisionShape() {
+        return collisionShape;
     }
 }

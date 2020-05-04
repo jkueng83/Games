@@ -165,7 +165,7 @@ public class MoveObjectToPosition extends ObjectPngPosition {
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
-        //super.update(gameContainer, delta);
+        super.update(gameContainer, delta);
         this.deltaT = (float) delta;
         calculateActualPosition();
     }

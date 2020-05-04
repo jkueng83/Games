@@ -16,26 +16,7 @@ public class Slingshot extends ObjectPngPosition {
     }
 
 
-    /*
-
-    private Image slingshot;
-    float x, y, v, objectWith, objectHeight;
-
-    public Slingshot() throws SlickException {
-        this.objectWith = 100;
-        this.objectHeight = 100;
-        Image temp = new Image("src/at/cc/jku/games/actors/pictures/steinschleuder3.png");
-        this.slingshot = temp.getScaledCopy((int) this.objectWith, (int) this.objectHeight);
-        this.x = 300;
-        this.y = 700;
-        this.v = 5;
-
-    }
-
-
-     */
-
-    /*
+    /*  Zeichnen macht die Mutterklasse
     @Override
     public void render(Graphics graphics) {
 
@@ -45,22 +26,13 @@ public class Slingshot extends ObjectPngPosition {
 
      */
 
-    /*
-    public float getXCenter() {
-        return x + this.objectWith/2;
-    }
 
-     */
 
-    /*
-    public float getY() {
-        return y;
-    }
-
-     */
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
+        super.update(gameContainer,delta);
+
         if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)) {
             this.x += this.speed / 100 * delta;
         }

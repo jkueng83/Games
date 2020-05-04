@@ -4,7 +4,7 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
-public class ObjectPngPosition implements Actor, CollisionShape {
+public class ObjectPngPosition implements CollisionActor {
 
     protected float x, y, objectWith, objectHeight;
     protected Image objectImage;

@@ -65,9 +65,10 @@ public class ApplesPointsCounter implements Actor {
 
              */
 
-            // mit Interface CollisionShape erkennen ob getroffen wurde:
+            // mit Interface CollisionActor erkennen ob getroffen wurde:
+            // CollisionActor erbt von Actor
             if (this.fallingApple.getShape().intersects(flyingDiamond.getShape())){
-                System.out.println("hit with intersection of Collision Shape from Interface");
+                System.out.println("hit with intersection of CollisionActor from Interface");
                 isAppleShoot = true;
                 countApplesPoints();
                 break;

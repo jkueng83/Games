@@ -90,6 +90,7 @@ public class MoveObjectToPosition extends ObjectPngPosition {
         // a = (y - bx - c)/(x^2) =
         // a= (y3 - (b) * x3 - (c) /(x3^2)
         // a= (y3 - ((y2- a*x2*x2 - (y1 - a * x1 * x1 - b * x1))/x2) * x3 - (y1 - a * x1 * x1 - b * x1)) /(x3*x3)
+        // a =
         //
 
         a = this.a;

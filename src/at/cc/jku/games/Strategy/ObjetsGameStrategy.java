@@ -5,6 +5,9 @@ package at.cc.jku.games.Strategy;
 import at.cc.jku.games.actors.Ellipse2MoveStrategy;
 import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Rectangle;
+import at.cc.jku.games.actors.Rectangle2MoveStrategy;
+import at.cc.jku.games.actors.RectangleFilled;
+import at.cc.jku.games.actors.movements.*;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
@@ -14,7 +17,6 @@ import java.util.Random;
 public class ObjetsGameStrategy extends BasicGame {
 
     Rectangle rectangle;
-    Ellipse2MoveStrategy ellipse2MoveStrategy;
     private List<Actor> actors;
     Random random;
 
@@ -32,11 +34,39 @@ public class ObjetsGameStrategy extends BasicGame {
         this.rectangle = new Rectangle(100, 100, 5);
         this.actors.add(this.rectangle);
 
-        for (int i = 0; i < 5; i++) {
-            this.ellipse2MoveStrategy = new Ellipse2MoveStrategy(this.random.nextInt(600),
-                    this.random.nextInt(600), 20);
-            this.actors.add(this.ellipse2MoveStrategy);
-        }
+
+        RightMoveStrategy rms1 = new RightMoveStrategy(50, 50, 5);
+        RightMoveStrategy rms2 = new RightMoveStrategy(50, 400, 50);
+        LeftMoveStrategy lms = new LeftMoveStrategy(550, 200, 10);
+
+
+        Ellipse2MoveStrategy e1 = new Ellipse2MoveStrategy(rms1);
+        this.actors.add(e1);
+        Ellipse2MoveStrategy e2 = new Ellipse2MoveStrategy(rms2);
+        this.actors.add(e2);
+        Ellipse2MoveStrategy e3 = new Ellipse2MoveStrategy(lms);
+        this.actors.add(e3);
+
+        RightMoveStrategy rms3 = new RightMoveStrategy(50,500,100);
+        Rectangle2MoveStrategy r1 = new Rectangle2MoveStrategy(rms3);
+        this.actors.add(r1);
+
+        LeftMoveStrategy lms2 = new LeftMoveStrategy( 300, 200,10);
+        RectangleFilled r2 = new RectangleFilled(lms2);
+        this.actors.add(r2);
+
+        FallingWithGravity fg = new FallingWithGravity(500);
+        RectangleFilled r3 = new RectangleFilled(fg);
+        this.actors.add(r3);
+
+        UpMoveStrategy ums = new UpMoveStrategy(40,20);
+        Ellipse2MoveStrategy e4 = new Ellipse2MoveStrategy(ums);
+        this.actors.add(e4);
+
+        DownMoveStrategy dms = new DownMoveStrategy(40,20);
+        RectangleFilled rf1 = new RectangleFilled(dms);
+        this.actors.add(rf1);
+
 
 
     }

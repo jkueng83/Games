@@ -2,7 +2,6 @@ package at.cc.jku.games.snake.parts;
 
 import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Interfaces.CollisionActor;
-import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -160,6 +159,24 @@ public class Snake implements CollisionActor {
         }
 
         return isGameOver;
+    }
+
+    public void restart() {
+        this.isGameOver = false;
+
+
+        this.moveStrategySnake = moveStrategySnake;
+        this.actors.clear();
+        this.snakeBodies.clear();
+        eat(); // Body erzeugen (Schwanz)
+
+
+        this.actors.add(this.snakeHead);
+
+        this.points = 0;
+        this.eats = 0;
+
+
     }
 
 }

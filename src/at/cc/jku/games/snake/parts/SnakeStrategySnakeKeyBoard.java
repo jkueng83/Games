@@ -27,10 +27,7 @@ public class SnakeStrategySnakeKeyBoard implements MoveStrategySnake {
         this.yMinGameField = yMinGameField;
         this.yMaxGameField = yMaxGameField;
 
-        this.movedirection = MOVEDIRECTION.STANDSTILL;
-        this.movedirectionRequested = this.movedirection;
-        this.x = ((int) ((xMinGameField + xMaxGameField) / 2 / 10)) * 10.0f + 5;
-        this.y = ((int) ((yMinGameField + yMaxGameField) / 2 / 10)) * 10.0f + 5;
+        restart();
 
         /*
         if (!(((int) this.x) % 5 == 0)){
@@ -42,6 +39,13 @@ public class SnakeStrategySnakeKeyBoard implements MoveStrategySnake {
 
          */
     }
+     public void restart (){
+
+         this.movedirection = MOVEDIRECTION.STANDSTILL;
+         this.movedirectionRequested = this.movedirection;
+         this.x = ((int) ((xMinGameField + xMaxGameField) / 2 / 10)) * 10.0f + 5;
+         this.y = ((int) ((yMinGameField + yMaxGameField) / 2 / 10)) * 10.0f + 5;
+     }
 
 
     @Override

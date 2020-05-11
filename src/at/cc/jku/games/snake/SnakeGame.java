@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SnakeGame extends BasicGame {
+    // Version 2.0.4: Add snake head png
     // Version 2.0.3: Wände aktivieren und deaktivieren
     // Version 2.0.2: Start mit "s" ergänzt
     // Version 2.0.1: Working Version
@@ -82,6 +83,7 @@ public class SnakeGame extends BasicGame {
                 for (Actor actor : this.actors) {
                     actor.update(gameContainer, delta);
                 }
+
             } else {
                 this.isGameStarted = false;
             }

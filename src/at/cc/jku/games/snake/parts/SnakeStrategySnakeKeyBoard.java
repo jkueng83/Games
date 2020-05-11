@@ -177,6 +177,9 @@ public class SnakeStrategySnakeKeyBoard implements MoveStrategySnake {
         return isGameOver;
     }
 
+    public MOVEDIRECTION getMovedirection() {
+        return movedirection;
+    }
 }
 
 

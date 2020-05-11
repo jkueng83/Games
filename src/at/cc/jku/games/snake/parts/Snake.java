@@ -81,6 +81,7 @@ public class Snake implements CollisionActor {
 
             }
 
+            this.snakeHead.setMoveDirection(this.moveStrategySnake.getMovedirection());
             this.isGameOver = isGameOver();
 
         }

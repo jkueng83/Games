@@ -1,9 +1,8 @@
 package at.cc.jku.games.snake.parts;
 
+import at.cc.jku.games.actors.Enums.MOVEDIRECTION;
 import at.cc.jku.games.actors.Interfaces.CollisionActor;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
+import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
@@ -16,13 +15,21 @@ public class SnakeHead implements CollisionActor {
 
     private Shape collisionShape;
 
-    public SnakeHead(float xStart , float yStart) {
+    private Image objectImage;
+    MOVEDIRECTION movedirection;
+
+    public SnakeHead(float xStart, float yStart) throws SlickException {
 
         this.x = xStart;
         this.y = yStart;
         this.objectHeight = 10;
         this.objectWith = this.objectHeight;
-        this.collisionShape = new Rectangle(this.x, this.y,this.objectWith-5,this.objectHeight-5);
+        this.movedirection = MOVEDIRECTION.STANDSTILL;
+        this.collisionShape = new Rectangle(this.x, this.y, this.objectWith - 5, this.objectHeight - 5);
+
+        Image temp = new Image("src/at/cc/jku/games/actors/pictures/snakeHead.png");
+        this.objectImage = temp.getScaledCopy((int) this.objectWith * 2, (int) this.objectHeight * 2);
+
 
     }
 
@@ -36,6 +43,9 @@ public class SnakeHead implements CollisionActor {
         graphics.setColor(Color.red);
         graphics.fillRect(this.x - this.objectWith / 2, this.y - objectHeight / 2, this.objectWith, this.objectHeight);
         graphics.setColor(Color.white);
+
+
+        this.objectImage.draw(this.x - this.objectWith, this.y - this.objectHeight);
 
         // nur jetzt zum entwickeln
         /*
@@ -51,6 +61,31 @@ public class SnakeHead implements CollisionActor {
 
         this.collisionShape.setCenterX(this.x);
         this.collisionShape.setCenterY(this.y);
+
+
+
+    }
+
+    private void rotateSnakeHead() {
+
+        switch (this.movedirection) {
+            case MOVEUP:
+                this.objectImage.setRotation(180);
+                break;
+
+            case MOVEDOWN:
+                this.objectImage.setRotation(0);
+                break;
+
+            case MOVETOLEFT:
+                this.objectImage.setRotation(90);
+                break;
+
+            case MOVETORIGHT:
+                this.objectImage.setRotation(270);
+                break;
+        }
+
 
     }
 
@@ -69,4 +104,11 @@ public class SnakeHead implements CollisionActor {
     public void setY(float y) {
         this.y = y;
     }
+
+    public void setMoveDirection(MOVEDIRECTION movedirection) {
+        this.movedirection = movedirection;
+        rotateSnakeHead();
+    }
+
+
 }

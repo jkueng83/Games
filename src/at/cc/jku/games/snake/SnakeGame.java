@@ -1,16 +1,17 @@
 package at.cc.jku.games.snake;
 
 import at.cc.jku.games.actors.Interfaces.Actor;
-import at.cc.jku.games.snake.parts.Snake;
-import at.cc.jku.games.snake.parts.SnakeFood;
-import at.cc.jku.games.snake.parts.SnakeGameField;
-import at.cc.jku.games.snake.parts.SnakeStrategySnakeKeyBoard;
+import at.cc.jku.games.actors.snakeActors.Snake;
+import at.cc.jku.games.actors.snakeActors.SnakeFood;
+import at.cc.jku.games.actors.snakeActors.SnakeGameField;
+import at.cc.jku.games.actors.snakeActors.SnakeStrategySnakeKeyBoard;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SnakeGame extends BasicGame {
+    // Version 2.0.5: Add Music
     // Version 2.0.4: Add snake head png
     // Version 2.0.3: Wände aktivieren und deaktivieren
     // Version 2.0.2: Start mit "s" ergänzt

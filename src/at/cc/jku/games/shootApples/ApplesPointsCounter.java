@@ -11,6 +11,7 @@ import org.newdawn.slick.SlickException;
 import java.util.List;
 
 public class ApplesPointsCounter implements Actor {
+
     private int shootApples;
     private int applesOnFloor;
     private int points;
@@ -18,11 +19,6 @@ public class ApplesPointsCounter implements Actor {
     private FallingApple fallingApple;
     private boolean isGameOver;
     private AngelCodeFont font;
-    //private FlyingApple flyingApple;
-    //private float applePositionX;
-    //private float applePositionY;
-    //private List<FlyingDiamond> flyingDiamonds;
-
 
     public ApplesPointsCounter(FallingApple fallingApple) throws SlickException {
         this.fallingApple = fallingApple;
@@ -31,6 +27,7 @@ public class ApplesPointsCounter implements Actor {
         this.points = 0;
         this.pointsPerApple = 1;
         this.font = new AngelCodeFont("testdata/hiero.fnt", "testdata/hiero.png");
+
     }
 
     public boolean isGameOver() {

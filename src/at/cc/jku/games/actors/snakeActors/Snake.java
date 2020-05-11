@@ -1,11 +1,8 @@
-package at.cc.jku.games.snake.parts;
+package at.cc.jku.games.actors.snakeActors;
 
 import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Interfaces.CollisionActor;
-import org.newdawn.slick.AngelCodeFont;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Shape;
 
 import java.util.ArrayList;
@@ -25,6 +22,7 @@ public class Snake implements CollisionActor {
     private List<Actor> actors;
 
     private AngelCodeFont font;
+    private Sound burp;
 
 
     public Snake(MoveStrategySnake moveStrategySnake, SnakeFood snakeFood) throws SlickException {
@@ -35,12 +33,14 @@ public class Snake implements CollisionActor {
         this.moveStrategySnake = moveStrategySnake;
         this.actors = new ArrayList<>();
         this.snakeBodies = new ArrayList<>();
-        eat(); // Body erzeugen (Schwanz)
-
+        eat(); // Body (Schwanz) erzeugen
         this.snakeFood = snakeFood;
 
         this.snakeHead = new SnakeHead(this.moveStrategySnake.getX(), this.moveStrategySnake.getY());
         this.actors.add(this.snakeHead);
+
+        burp = new Sound("testdata/burp.aif");
+
 
     }
 
@@ -120,6 +120,7 @@ public class Snake implements CollisionActor {
 
             hasEatFood = true;
             System.out.println("The snake eat something");
+            this.burp.play();
             this.eats++;
             this.snakeFood.newPosition();
         }

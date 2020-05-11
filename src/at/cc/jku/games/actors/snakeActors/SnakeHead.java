@@ -1,4 +1,4 @@
-package at.cc.jku.games.snake.parts;
+package at.cc.jku.games.actors.snakeActors;
 
 import at.cc.jku.games.actors.Enums.MOVEDIRECTION;
 import at.cc.jku.games.actors.Interfaces.CollisionActor;

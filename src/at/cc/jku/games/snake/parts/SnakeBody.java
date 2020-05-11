@@ -9,18 +9,11 @@ import org.newdawn.slick.geom.Shape;
 
 public class SnakeBody implements CollisionActor {
 
-
-    private float x, xLastCycle;
-    private float y, yLastCycle;
-
-    private float objectWith, objectHeight;
+    private float x, xLastCycle, y, yLastCycle, objectWith, objectHeight;
 
     private Shape collisionShape;
 
     boolean isMoving;
-
-
-
 
     public SnakeBody(float x, float y) {
 
@@ -64,6 +57,7 @@ public class SnakeBody implements CollisionActor {
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
+
         this.collisionShape.setCenterX(this.x);
         this.collisionShape.setCenterY(this.y);
 
@@ -81,7 +75,6 @@ public class SnakeBody implements CollisionActor {
         this.yLastCycle = y;
 
     }
-
 
     @Override
     public Shape getShape() {

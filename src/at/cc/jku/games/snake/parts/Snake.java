@@ -2,6 +2,7 @@ package at.cc.jku.games.snake.parts;
 
 import at.cc.jku.games.actors.Interfaces.Actor;
 import at.cc.jku.games.actors.Interfaces.CollisionActor;
+import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -12,8 +13,7 @@ import java.util.List;
 
 public class Snake implements CollisionActor {
 
-
-    private int counterTime, points, eats;
+    private int points, eats;
     boolean isGameOver;
 
     private SnakeHead snakeHead;
@@ -24,29 +24,23 @@ public class Snake implements CollisionActor {
 
     private List<Actor> actors;
 
-
+    private AngelCodeFont font;
 
 
     public Snake(MoveStrategySnake moveStrategySnake, SnakeFood snakeFood) throws SlickException {
-        //this.movedirection = MOVEDIRECTION.STANDSTILL;
-        // this.x = 300;
-        // this.y = 300;
 
+        this.font = new AngelCodeFont("testdata/hiero.fnt", "testdata/hiero.png");
         this.isGameOver = false;
-
 
         this.moveStrategySnake = moveStrategySnake;
         this.actors = new ArrayList<>();
         this.snakeBodies = new ArrayList<>();
         eat(); // Body erzeugen (Schwanz)
 
-
         this.snakeFood = snakeFood;
 
-        this.snakeHead = new SnakeHead();
+        this.snakeHead = new SnakeHead(this.moveStrategySnake.getX(), this.moveStrategySnake.getY());
         this.actors.add(this.snakeHead);
-
-
 
     }
 
@@ -80,17 +74,16 @@ public class Snake implements CollisionActor {
                 actor.update(gameContainer, delta);
             }
 
-
             if (hasEatFood()) {
 
                 eat();
                 pointsCounter();
+
             }
 
             this.isGameOver = isGameOver();
+
         }
-
-
 
     }
 
@@ -119,27 +112,31 @@ public class Snake implements CollisionActor {
     }
 
     private boolean hasEatFood() {
+
         boolean hasEatFood = false;
+
         if (this.snakeFood.getShape().intersects(this.snakeHead.getShape())) {
+
             hasEatFood = true;
             System.out.println("The snake eat something");
             this.eats++;
             this.snakeFood.newPosition();
-
-
         }
 
         return hasEatFood;
     }
 
     private void pointsCounter() {
-        this.points++;
+
+        this.points += 10;
 
     }
 
     private void renderCounter(Graphics graphics) {
-        graphics.drawString("Eats: " + this.eats, 200, 50);
-        graphics.drawString("Points: " + this.points, 400, 50);
+
+        this.font.drawString(100, -5, "Eats: " + this.eats);
+        this.font.drawString(100, 35, "Points: " + this.points);
+
     }
 
     public boolean isGameOver() {
@@ -150,8 +147,7 @@ public class Snake implements CollisionActor {
 
                 if (snakeBody.getShape().intersects(this.snakeHead.getShape())) {
                     isGameOver = true;
-                    System.out.println("The snake eat snake");
-                    System.out.println("GAME OVER");
+
                 }
 
             }
@@ -162,20 +158,16 @@ public class Snake implements CollisionActor {
     }
 
     public void restart() {
+
         this.isGameOver = false;
-
-
-        this.moveStrategySnake = moveStrategySnake;
-        this.actors.clear();
-        this.snakeBodies.clear();
-        eat(); // Body erzeugen (Schwanz)
-
-
-        this.actors.add(this.snakeHead);
-
         this.points = 0;
         this.eats = 0;
 
+        this.actors.clear();
+        this.snakeBodies.clear();
+
+        eat(); // Body erzeugen (Schwanz)
+        this.actors.add(this.snakeHead);
 
     }
 

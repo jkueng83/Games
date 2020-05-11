@@ -16,13 +16,14 @@ public class SnakeHead implements CollisionActor {
 
     private Shape collisionShape;
 
-    public SnakeHead() {
-        this.x = 300;
-        this.y = 300;
+    public SnakeHead(float xStart , float yStart) {
+
+        this.x = xStart;
+        this.y = yStart;
         this.objectHeight = 10;
         this.objectWith = this.objectHeight;
-
         this.collisionShape = new Rectangle(this.x, this.y,this.objectWith-5,this.objectHeight-5);
+
     }
 
     @Override
@@ -47,9 +48,9 @@ public class SnakeHead implements CollisionActor {
 
     @Override
     public void update(GameContainer gameContainer, int delta) {
+
         this.collisionShape.setCenterX(this.x);
         this.collisionShape.setCenterY(this.y);
-
 
     }
 
